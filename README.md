@@ -1,7 +1,7 @@
 # proccesingを使って明度情報から音の出力
 
 ## 環境
-Mac book pro：OSX El Capitan(10.11.6)
+Mac book pro：OSX El Capitan(10.11.6)   
 Processing：3.2.3
 公式ライブラリ
 - video：画面キャプチャするためのライブラリ
@@ -26,6 +26,7 @@ Processingを起動させて、
 ## コードのダウンロード
 [github](https://github.com/shiiiiiiiii1/capture_sound)にコードをまとめておいたのでそこからダウンロードをする。
 緑の`clone or download`から`Download ZIP`をする。
+
 <img src="https://qiita-image-store.s3.amazonaws.com/0/111944/c3cfc61e-228a-97c2-b439-08db85bf638d.png" width="80%">
 
 
