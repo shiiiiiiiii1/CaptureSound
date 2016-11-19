@@ -12,7 +12,6 @@ SineWave sine;
 void setup() {
 /* 音出力・生成のセットアップ */
   minim = new Minim(this);
-  out = minim.getLineOut(Minim.STEREO);
 /* カメラキャプチャのセットアップ */
   size(1280, 720);
   String[] cameras = Capture.list();
@@ -23,16 +22,17 @@ void setup() {
     println("DEVICE resolution");
     for (String c : cameras) {
       println(c);
-  }
-  cam = new Capture(this, cameras[0]);
-  println("device start");
-  cam.start();
-  loadPixels();
+    }
+    cam = new Capture(this, cameras[0]);
+    println("device start");
+    cam.start();
+    loadPixels();
   }
 }
 
 void draw() {
   if (cam.available()) {
+    out = minim.getLineOut(Minim.STEREO);
     cam.read();
     cam.loadPixels();
     int pixel_sum = 0;
@@ -55,9 +55,12 @@ void draw() {
     }
     pixel_ave = pixel_sum / pixel_count;
     println("pixel_ave: "+pixel_ave);
+    pixel_ave += 400;
     updatePixels();
-    sine = new SineWave(440, 0.5, out.sampleRate());
+    sine = new SineWave(pixel_ave, 0.8, out.sampleRate());
     out.addSignal(sine);
+    delay(100);
+    out.close();
   }
 }
 
