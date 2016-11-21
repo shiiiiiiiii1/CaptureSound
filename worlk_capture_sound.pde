@@ -55,11 +55,11 @@ void draw() {
     }
     pixel_ave = pixel_sum / pixel_count;
     println("pixel_ave: "+pixel_ave);
-    pixel_ave += 400;
+    pixel_ave += 500;
     updatePixels();
     sine = new SineWave(pixel_ave, 0.8, out.sampleRate());
     out.addSignal(sine);
-    delay(100);
+    delay(750);
     out.close();
   }
 }
